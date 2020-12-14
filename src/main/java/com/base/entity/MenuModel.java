@@ -1,16 +1,16 @@
-package com.base.common.sercurity.entity;
+package com.base.entity;
 
-import com.baomidou.mybatisplus.annotation.TableName;
 import lombok.Data;
+
+import java.util.List;
 
 /**
  * @author zelei.fan
- * @date 2020/7/30 23:12
- * @description 菜单实体
+ * @date 2020/12/10 11:50
+ * @description
  */
 @Data
-@TableName("t_menu")
-public class Menu {
+public class MenuModel {
 
     private Integer id;
 
@@ -27,4 +27,6 @@ public class Menu {
     private Integer deleted;
 
     private Long updateTime;
+
+    private List<MenuModel> child;
 }

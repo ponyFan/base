@@ -73,7 +73,7 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
         UserEntity jwtUser = (UserEntity) authResult.getPrincipal();
         boolean isRemember = rememberMe.get() == 1;
-        String token = JwtTokenUtils.createToken(jwtUser.getId(), jwtUser.getUsername(), jwtUser.getUserRole(), jwtUser.getRoleMenus(), isRemember);
+        String token = JwtTokenUtils.createToken(jwtUser.getId(), jwtUser.getUsername(), jwtUser.getUserRole(), isRemember);
         response.setHeader("token", JwtTokenUtils.TOKEN_PREFIX + token);
         response.setCharacterEncoding("UTF-8");
         Map<String, Object> maps = new HashMap<>();
@@ -92,6 +92,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
     @Override
     protected void unsuccessfulAuthentication(HttpServletRequest request, HttpServletResponse response, AuthenticationException failed) throws IOException, ServletException {
         response.setCharacterEncoding("UTF-8");
-        response.getWriter().write(JSON.toJSON(new BaseResponse<>(400, "登陆失败")).toString());
+        response.getWriter().write(JSON.toJSON(new BaseResponse<>(400, "用户名或密码错误")).toString());
     }
 }

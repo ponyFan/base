@@ -22,6 +22,6 @@ public interface RoleDao extends BaseMapper<Role> {
      * @param id
      * @return
      */
-    @Select("select r.* from t_role r,t_user_roles ur where r.id=ur.role_id and ur.user_id=#{id}")
+    @Select("select r.* from t_role r,t_user_role ur where r.id=ur.role_id and ur.user_id=#{id}")
     Role getUserRoleByUserId(Long id);
 }

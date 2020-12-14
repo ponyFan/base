@@ -24,7 +24,7 @@ public interface MenuDao extends BaseMapper<Menu> {
      * @param id
      * @return
      */
-    @Select("select * from t_menu m,t_role_menus rm where m.deleted=0 and m.id=rm.menu_id \n" +
+    @Select("select * from t_menu m,t_role_menu rm where m.deleted=1 and m.id=rm.menu_id \n" +
             "and rm.role_id = #{id}\n")
-    List<Menu> getRoleMenuByRoles(Long id);
+    List<Menu> getRoleMenuByRoles(Integer id);
 }

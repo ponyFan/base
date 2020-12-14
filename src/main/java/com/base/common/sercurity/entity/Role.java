@@ -12,9 +12,11 @@ import lombok.Data;
 @TableName("t_role")
 public class  Role {
 
-    private Long id;
+    private Integer id;
 
     private String roleName;
+
+    private Long updateTime;
 
     private Integer deleted;
 }
